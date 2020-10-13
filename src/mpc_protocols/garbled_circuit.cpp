@@ -560,8 +560,12 @@ buf128_t oword_simple_shift_left(buf128_t v, int shift)
   to.hi = tv.hi << shift;
 
 #else
-  o.lo = v.lo << shift;
-  o.hi = v.hi << shift;
+  // o.lo = v.lo << shift;
+  // o.hi = v.hi << shift;
+  for (int i=0;i<16;i++)
+  {
+	  o.data[i] = v.data[i] << shift;
+  }
 #endif
   return o;
 }

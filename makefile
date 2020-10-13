@@ -32,8 +32,8 @@ COMMON_CPPFLAGS = \
 	-Wno-switch \
 	-Wno-switch-enum \
 	-Werror \
-	-mpclmul \
-	-std=c++0x
+	-std=c++0x \
+	-DMPC_CRYPTO_NO_JNI
 
 COMMON_LDFLAGS = \
 	-s
@@ -49,8 +49,8 @@ LIB_ASMSRC = \
 	$(wildcard src/mpc_protocols/*.s)
 		 
 LIB_OBJ = \
-	$(LIB_CPPSRC:.cpp=.o) \
-	$(LIB_ASMSRC:.s=.o) 
+	$(LIB_CPPSRC:.cpp=.o) 
+#	$(LIB_ASMSRC:.s=.o) 
 
 LIB_HEADERS = $(wildcard src/*.h) \
 	$(wildcard src/utils/*.h) \
@@ -69,8 +69,7 @@ LIB_INCLUDES = \
 LIB_CPPFLAGS = \
 	$(COMMON_CPPFLAGS) \
 	-DMPC_CRYPTO_EXPORTS \
-	-fvisibility=hidden \
-	-maes
+	-fvisibility=hidden 
 
 LIB_LDFLAGS = \
 	$(COMMON_LDFLAGS) \

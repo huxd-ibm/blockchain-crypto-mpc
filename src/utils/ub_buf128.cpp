@@ -38,7 +38,7 @@ buf128_t::buf128_t (null_ptr_t null_ptr)
 #elif defined(__LITTLE_ENDIAN__)
   lo = hi = 0;
 #else
-  memset(this, 0, sizeof(buf128_t))
+  memset(this, 0, sizeof(buf128_t));
 #endif
 }
 
